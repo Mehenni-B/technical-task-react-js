@@ -1,7 +1,7 @@
-import Meal from './Meal';
+import MealCard from './MealCard';
 import MealsSection from './MealsSection';
 
 export {
-    Meal,
+    MealCard,
     MealsSection
 };

@@ -22,7 +22,7 @@ const MealsSection: React.FC = () => {
 
     return (
         <>
-            <Center my={20}>
+            <Center my={10}>
                 <Heading>Menu</Heading>
             </Center>
             {

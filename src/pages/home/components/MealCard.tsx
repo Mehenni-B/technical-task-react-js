@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react'
 import { MealType } from "../../../models/Meal";
 
-const MealPage: React.FC<{ meal: MealType }> = (props) => {
+const Meal: React.FC<{ meal: MealType }> = (props) => {
 
     return (
         <>
@@ -59,4 +59,4 @@ const MealPage: React.FC<{ meal: MealType }> = (props) => {
     );
 }
 
-export default MealPage;
+export default Meal;

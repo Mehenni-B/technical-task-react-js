@@ -1,5 +1,5 @@
-import Meal from './meal';
-import MealsSection from './mealsSection';
+import Meal from './Meal';
+import MealsSection from './MealsSection';
 
 export {
     Meal,

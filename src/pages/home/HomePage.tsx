@@ -1,11 +1,11 @@
+import { Container } from '@chakra-ui/react';
 import { MealsSection } from './components/_index';
 
 const HomePage: React.FC = () => {
     return (
-        <div>
-            <h1>HomePage</h1>
+        <Container maxW={'90%'} w={{ lg: '1200px' }}>
             <MealsSection />
-        </div>
+        </Container>
     );
 }
 

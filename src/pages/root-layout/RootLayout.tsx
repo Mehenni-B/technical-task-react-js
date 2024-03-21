@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
-// import { Navbar, Footer } from "../../components/blocks/_index";
+import { Navbar, Footer } from "../../components/blocks/_index";
 
 const RootLayout: React.FC = () => {
     return <>
-        {/* <Navbar /> */}
+        <Navbar />
         <Outlet />
-        {/* <Footer /> */}
+        <Footer />
     </>
 }
 

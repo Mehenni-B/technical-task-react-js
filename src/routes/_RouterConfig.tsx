@@ -1,9 +1,9 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom';
 import {
     HomePage,
     RootLayout,
     NotFound,
-} from '../pages/_index'
+} from '../pages/_index';
 
 
 const RouterConfig = createBrowserRouter([

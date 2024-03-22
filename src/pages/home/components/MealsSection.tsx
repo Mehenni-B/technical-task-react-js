@@ -18,7 +18,7 @@ const MealsSection: React.FC = () => {
             setIsLoading(false);
         }
         initMeals();
-    }, [getMeals])
+    }, [])
 
     return (
         <>

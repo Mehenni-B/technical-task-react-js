@@ -18,6 +18,7 @@ const MealsSection: React.FC = () => {
             setIsLoading(false);
         }
         initMeals();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

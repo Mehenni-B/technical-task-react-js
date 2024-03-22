@@ -7,7 +7,7 @@ import { MealType } from "../../../models/Meal";
 import { Center, Grid, GridItem, Heading, Spinner } from "@chakra-ui/react";
 
 const MealsSection: React.FC = () => {
-    const getMeals = (new MealViewModel).getMeals;
+    const getMeals = (new MealViewModel()).getMeals;
     const meals = useSelector((state: RootState) => state.meal.list);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -18,7 +18,7 @@ const MealsSection: React.FC = () => {
             setIsLoading(false);
         }
         initMeals();
-    }, [])
+    }, [getMeals])
 
     return (
         <>

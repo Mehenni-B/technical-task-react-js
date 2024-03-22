@@ -25,21 +25,20 @@ const MealsSection: React.FC = () => {
             <Center my={10}>
                 <Heading>Menu</Heading>
             </Center>
-            {
-                isLoading &&
+
+            {isLoading ?
                 <Center my={20}>
-                    <Spinner thickness='4px' speed='0.65s' emptyColor='gray.200' color='blue.500' size='xl' />
+                    <Spinner data-testid="loading-spinner" thickness='4px' speed='0.65s' emptyColor='gray.200' color='blue.500' size='xl' />
                 </Center>
+                :
+                <Grid data-testid="meals-grid" templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)', xl: 'repeat(4, 1fr)' }} gap={6}>
+                    {Array.isArray(meals) && meals?.map((meal: MealType, index: number) =>
+                        <GridItem key={index}>
+                            <MealCard meal={meal} />
+                        </GridItem>
+                    )}
+                </Grid>
             }
-
-            <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)', xl: 'repeat(4, 1fr)' }} gap={6}>
-                {meals && meals.map((meal: MealType, index: number) =>
-                    <GridItem>
-                        <MealCard key={index} meal={meal} />
-                    </GridItem>
-                )}
-            </Grid>
-
 
         </>
     );

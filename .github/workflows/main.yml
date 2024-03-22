@@ -27,8 +27,8 @@ jobs:
       - name: Build React app
         run: npm run build
       
-      - name: Deploy to hosting platform
+      - name: Deploy to Vercel
         run: |
-          npm install netlify-cli -g
-          netlify deploy --prod --dir=build --auth=$NETLIFY_AUTH_TOKEN
+          npm install -g vercel
+          vercel --prod --token $VERCEL_AUTH_TOKEN
 

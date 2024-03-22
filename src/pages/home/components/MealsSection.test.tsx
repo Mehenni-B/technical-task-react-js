@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { MealsSection } from './_index';
 import { Provider } from 'react-redux';
 import store from '../../../store';
@@ -11,14 +11,24 @@ jest.mock('react-redux', () => ({
 }));
 
 const mockedUseSelector = useSelector as jest.MockedFunction<typeof useSelector>;
+const mockMeals = [
+    { id: 1, name: 'Meal 1', category: 'Category 1', area: 'Area 1', instructions: 'Instructions 1', image: 'image1.jpg' },
+    { id: 2, name: 'Meal 2', category: 'Category 2', area: 'Area 2', instructions: 'Instructions 2', image: 'image2.jpg' },
+];
 
 describe('MealsSection component', () => {
     beforeEach(() => {
         mockedUseSelector.mockClear();
+        jest.resetAllMocks();
     });
 
     it('renders loading spinner when meals are loading', async () => {
         mockedUseSelector.mockReturnValueOnce({ meal: { list: null } });
+
+        global.fetch = jest.fn().mockResolvedValue({
+            json: jest.fn().mockResolvedValue({ meal: { list: mockMeals } })
+        });
+
         const { findByTestId } = render(
             <Provider store={store}>
                 <MealsSection />
@@ -30,11 +40,8 @@ describe('MealsSection component', () => {
     });
 
     it('renders meals grid when meals are loaded', async () => {
-        const mockMeals = [
-            { id: 1, name: 'Meal 1', category: 'Category 1', area: 'Area 1', instructions: 'Instructions 1', image: 'image1.jpg' },
-            { id: 2, name: 'Meal 2', category: 'Category 2', area: 'Area 2', instructions: 'Instructions 2', image: 'image2.jpg' },
-        ];
         mockedUseSelector.mockReturnValueOnce({ meal: { list: mockMeals } });
+
         const { findByTestId, queryByTestId } = render(
             <Provider store={store}>
                 <MealsSection />
